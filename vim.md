@@ -15,7 +15,7 @@
 |---------------------------------------|-----------------------------------------------------------------------|
 | Make directory 			| `:!mkdir <foldername>`								|
 | Change directory 	| `:cd <path>`	|
-| Show working directory | `:pwd |
+| Show working directory | `:pwd` |
 | Check runtimepaths | `:set runtimepath?` |
 | Check paths | `:set path?` |
 | Check include library paths | `checkpath!` |
