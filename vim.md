@@ -33,5 +33,5 @@
 | Expression register | `"=` |
 | Search register | `"/` |
 | Most recent command | `":` |
-| current file path | `"%` |
-| copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
+| Current file path | `"%` |
+| Copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
