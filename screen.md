@@ -1,5 +1,7 @@
 # Screen Quick Reference
 
+See also: config/screen/.screenrc
+
 ## Basic
 
 | Description 				| Command 				|
