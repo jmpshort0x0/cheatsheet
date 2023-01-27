@@ -30,3 +30,8 @@
 |---------------------------------------|-----------------------------------------------------------------------|
 | View registers 			| `:reg`								|
 | Access register | `"<register>` |
+| Expression register | `"=` |
+| Search register | `"/` |
+| Most recent command | `":` |
+| current file path | `"%` |
+| copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
