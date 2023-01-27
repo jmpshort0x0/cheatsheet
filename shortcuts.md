@@ -14,10 +14,31 @@
 
 | Description 				| Command 				|
 |---------------------------------------|---------------------------------------|
-| Move to beginning of line             | `ctrl a`	or Home	|
+| Move to beginning of line             | `ctrl a`	or `Home`	|
 | Move to beginning of word	        | `alt b`				|
 | Move one space backward		| `ctrl b`				|
 | Move one space forward	        | `ctrl f`		|
 | Move to end of word		        | `alt f`		|
-| Move to end of line                   | `ctrl e` or End |
-| Accessing a screen that is already attached | `screen -r -d [session name]` |
+| Move to end of line                   | `ctrl e` or `End` |
+
+
+## History
+
+
+| Description 				| Command 				|
+|---------------------------------------|---------------------------------------|
+| Search the history backwards            | `ctrl r`	|
+| Exit from searching mode            | `ctrl g`	|
+| Walk backwards through history      | `ctrl p`  |
+| Walk forwards through history       | `ctrl n`  |
+| Last word of previous command       | `alt .`   |
+
+
+## ! Shortcuts (bash)
+
+| Description 				| Command 				|
+|---------------------------------------|---------------------------------------|
+| Last command            | `!!`	|
+| Run the last command that starts with <keyword> | `!<keyword>`|
+| Print the last command that starts with <keyword> | `!<keyword>:p`|
+| Last word of previous command | `!$` or `alt .` |
