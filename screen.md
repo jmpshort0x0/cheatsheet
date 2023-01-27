@@ -83,5 +83,4 @@ All screen commands are prefixed by an escape key, by default Ctrl-a (that's Con
 
 
 references:
-https://gist.github.com/mickpbarry
-https://gist.github.com/jctosta/af918e1618682638aa82
+https://gist.github.com/mickpbarry, https://gist.github.com/jctosta/af918e1618682638aa82
