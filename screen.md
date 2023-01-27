@@ -72,7 +72,7 @@ All screen commands are prefixed by an escape key, by default Ctrl-a (that's Con
 | Enable logging in the screen session 			| `Ctrl-a H`								|
 
 
-|-----|------|
+
 | Enter scrolling mode | Ctrl-a esc |
 | Scroll Up | Ctrl-u |
 | Scroll Down | Ctrl-d |
