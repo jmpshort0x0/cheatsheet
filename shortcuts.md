@@ -24,7 +24,6 @@
 
 ## History
 
-
 | Description 				| Command 				|
 |---------------------------------------|---------------------------------------|
 | Search the history backwards            | `ctrl r`	|
@@ -33,12 +32,25 @@
 | Walk forwards through history       | `ctrl n`  |
 | Last word of previous command       | `alt .`   |
 
-
 ## ! Shortcuts (bash)
 
 | Description 				| Command 				|
 |---------------------------------------|---------------------------------------|
 | Last command            | `!!`	|
-| Run the last command that starts with <keyword> | `!<keyword>`|
-| Print the last command that starts with <keyword> | `!<keyword>:p`|
+| Run the last command that starts with \<keyword\> | `!<keyword>`|
+| Print the last command that starts with \<keyword\> | `!<keyword>:p`|
 | Last word of previous command | `!$` or `alt .` |
+| Print the word of previous command | `!$:p` |
+| Previous command less first word | `!*` |
+| Print the command less first word | `!*:p` |
+
+## CLI control
+
+| Description 				| Command 				|
+|---------------------------------------|---------------------------------------|
+| Clear screen            | `ctrl l` or `cls` or `clear`	|
+| Stops the output            | `ctrl s`	|
+| Continue output            | `ctrl q`	|
+| Terminate command            | `ctrl c`	|
+| Suspend command            | `ctrl z`	|
+| Resume the command            | `fg`	|
