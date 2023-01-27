@@ -6,7 +6,7 @@
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
 | Set marker point 			| `m<Capital letter (to avoid confusion with other cmds)>`								|
-| Move to marker 	| `\`<Capital letter\>`	|
+| Move to marker 	| ``<Capital letter\>`	|
 | Go to main working file 	| `:first`	|
 
 ## File Management
