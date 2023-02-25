@@ -9,7 +9,7 @@
 | Move to marker 	| `` `<Capital letter>``	|
 | Go to main working file 	| `:first`	|
 
-## File Management
+## File Management (netrw)
 
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
