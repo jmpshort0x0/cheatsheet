@@ -24,6 +24,18 @@
 | Create dir with netrw 	| `d`	|
 | Create file with netrw 	| `%`	|
 
+
+## Movement
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Re-align line to the top 			| `zt`								|
+| Re-align line to the middle 			| `zz`								|
+| Re-align line to the bottom 			| `zb`								|
+| Re-align line to the bottom 			| `zb`								|
+| Go to the first line 			| `gg`								|
+| Go to the last line 			| `G`								|
+| Go to the beginning of the line			| `^`								|
+| Go to the end of the line			| `$`								|
   
 ## Registers
 | Description				| Command								|
