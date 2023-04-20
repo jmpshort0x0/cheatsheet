@@ -47,3 +47,9 @@
 | Most recent command | `":` |
 | Current file path | `"%` |
 | Copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
+
+
+## Other
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Select all 			| `ggVG`								|
