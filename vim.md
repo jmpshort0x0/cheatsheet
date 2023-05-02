@@ -10,6 +10,8 @@
 | Go to main working file 	| `:first`	|
 
 ### Marking with signature plugin
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
 |mx|Toggle mark 'x' and display it in the leftmost column|
 |dmxRemove mark 'x' where x is a-zA-Z|
 |m,|Place the next available mark|
