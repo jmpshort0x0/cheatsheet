@@ -125,7 +125,7 @@
 | Join line / delete line break | `J` |
 
 ### word / sentence / paragraphs
-below uses a prefix as the command, for example `aw` would need a prefix of `d` to make `daw`
+below uses a **prefix** as the command, for example `aw` would need a prefix of `d` to make `daw`
 
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
