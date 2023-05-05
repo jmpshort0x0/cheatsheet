@@ -142,7 +142,7 @@ below uses a prefix as the command, for example `i"` would need a prefix of `c` 
 
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
-| Around "\'\"\` 			| `a"`	|
+| Around "\\'\"\` 			| `a"`	|
 | Within "\'\"\` 			| `i"`	|
 
 ## Registers
