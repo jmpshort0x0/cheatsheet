@@ -137,13 +137,20 @@ below uses a prefix as the command, for example `aw` would need a prefix of `d` 
 | Inner paragraph | `ip` |
 
 ### programming language context
-below uses a prefix as the command, for example `i"` would need a prefix of `c` to make `ci"`
+below uses a **prefix** as the command, for example `i"` would need a prefix of `c` to make `ci"`
 
 
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
-| Around "\\'\\` 			| `` a"\'\` ``	|
-| Within "\\'\\` 			| `` i"\'\` ``	|
+| Around "\\'\\`\\)\\]\\}\\> 			| `` a"\'\`\)\]\}\> ``	|
+| Within "\\'\\`\\)\\]\\}\\>			| `` i"\'\`\)\]\}\> ``	|
+
+
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Around tag block 			| `at`	|
+| Within tag block 			| `it`	|
+example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings` and change to edit mode
 
 ## Registers
 | Description				| Command								|
