@@ -118,7 +118,7 @@
 |---------------------------------------|-----------------------------------------------------------------------|
 | Search forward of current word 			| `*`								|
 | Search backward of current word 			| `#`								|
-| Search for word | `\/<word\>`
+| Search for word | `/<word\>`
 
 
 ## Other
