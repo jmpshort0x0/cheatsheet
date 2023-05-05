@@ -1,4 +1,6 @@
 ## Quitting
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
 | Quit and save | `ZZ` or `:wq` |
 | Quit without saving | `ZQ` or `:q!` |
 | Write current buffer | `w` |
