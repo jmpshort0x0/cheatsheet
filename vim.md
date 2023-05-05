@@ -124,6 +124,27 @@
 | Change WORD 			| `cW`	|
 | Join line / delete line break | `J` |
 
+### word / sentence / paragraphs
+below uses a prefix as the command, for example `aw` would need a prefix of `d` to make `daw`
+
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Around word 			| `aw`	|
+| Within word | `iw` |
+| A sentence | `as` |
+| Inner sentence | `is` |
+| A paragraph | `ap` |
+| Inner paragraph | `ip` |
+
+### programming language context
+below uses a prefix as the command, for example `i"` would need a prefix of `c` to make `ci"`
+
+
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Around "\'\"\` 			| `a"`	|
+| Within "\'\"\` 			| `i"`	|
+
 ## Registers
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
