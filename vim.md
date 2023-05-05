@@ -105,6 +105,9 @@
 | Yank line | `yy` |
 | Yank word | `yw` |
 | Yank to end of word | `ye` |
+| Yank to <char> | `yt<char>` |
+| Yank to space | `yt ` |
+| Search for yanked string | `/ CTRL+R 0` |
 | Put register content at the end of cursor | `p` |
 | Put register content before the cursor | `P` |
  
