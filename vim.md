@@ -174,6 +174,18 @@
 | Close a window | `:close` or `CTRL w c` |
 | Close all except current window | `:only` or `CTRL w o`|
 | Move between splits | `CTRL w w` |
+| Move around based on current (up/down/left/right) | `CTRL w k/j/h/l` |
+| Move to top left / bottom right | `CTRL w t/b` |
+| Move to last accessed | `CTRL w p` |
+| Rotate windows clockwise | `CTRL w r` |
+| Rotate windows counter clockwise | `CTRL w R` |
+| Move current window top/bottom/left/right | `CTRL w K/J/H/L` |
+| Move current window to new tab | `CTRL w T` |
+| Reset all window sizes | `CTRL w =` |
+| Decrease window height | `CTRL w -` |
+| Increase window height | `CTRL w +` |
+| Decrease window width | `CTRL w <` |
+| Increase window width | `CTRL w >` |
  
 ## Other
 | Description				| Command								|
