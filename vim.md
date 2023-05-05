@@ -37,20 +37,20 @@
 |Jump to next mark| `` ]` ``|
 |Jump to prev mark| `` [` `` |
 |Jump to start of next line containing a mark|` ]'`|
-|['|Jump to start of prev line containing a mark|
-|`]|Jump by alphabetical order to next mark|
-|`[|Jump by alphabetical order to prev mark|
-|']|Jump by alphabetical order to start of next line having a mark|
-|'[|Jump by alphabetical order to start of prev line having a mark|
-|m/|Open location list and display marks from current buffer|
-|m[0-9] | Toggle the corresponding marker !@#$%^&*()|
-|m<S-[0-9]> | Remove all markers of the same type|
-|]-|Jump to next line having a marker of the same type|
-|[-|Jump to prev line having a marker of the same type|
-|]=|Jump to next line having a marker of any type|
-|[=|Jump to prev line having a marker of any type|
-|m?|Open location list and display markers from current buffer|
-|m\<BS\>|Remove all markers|
+|Jump to start of prev line containing a mark| `['`|
+|Jump by alphabetical order to next mark|`` `] ``|
+|Jump by alphabetical order to prev mark|`` `[ ``|
+|Jump by alphabetical order to start of next line having a mark|`']`|
+|Jump by alphabetical order to start of prev line having a mark|`'[`|
+|Open location list and display marks from current buffer|`m/`|
+| Toggle the corresponding marker !@#$%^&*()|`m[0-9] `|
+| Remove all markers of the same type|`m<S-[0-9]> `|
+|Jump to next line having a marker of the same type|`]-`|
+|Jump to prev line having a marker of the same type|`[-`|
+|Jump to next line having a marker of any type|`]=`|
+|Jump to prev line having a marker of any type|`[=`|
+|Open location list and display markers from current buffer|`m?`|
+|Remove all markers|`m<BS>`|
 
 
 ## File Management (netrw)
