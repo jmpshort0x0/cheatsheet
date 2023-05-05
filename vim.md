@@ -28,13 +28,13 @@
 ### Marking with signature plugin
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
-|mx|Toggle mark 'x' and display it in the leftmost column|
-|dmx|Remove mark 'x' where x is a-zA-Z|
-|m,|Place the next available mark|
-|m.|If no mark on line, place the next available mark. Otherwise, remove (first) existing mark.|
-|m-|Delete all marks from the current line|
-|m\<Space\> |Delete all marks from the current buffer|
-|]`|Jump to next mark|
+|Toggle mark 'x' and display it in the leftmost column| `mx` |
+|Remove mark 'x' where x is a-zA-Z| `dmx` |
+|Place the next available mark| `m,` |
+|If no mark on line, place the next available mark. Otherwise, remove (first) existing mark.| `m.` |
+|Delete all marks from the current line|`m-`|
+|Delete all marks from the current buffer|`m<Space>`|
+|Jump to next mark| `]``|
 |[`|Jump to prev mark|
 |]'|Jump to start of next line containing a mark|
 |['|Jump to start of prev line containing a mark|
