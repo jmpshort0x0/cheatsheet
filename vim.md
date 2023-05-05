@@ -34,8 +34,8 @@
 |If no mark on line, place the next available mark. Otherwise, remove (first) existing mark.| `m.` |
 |Delete all marks from the current line|`m-`|
 |Delete all marks from the current buffer|`m<Space>`|
-|Jump to next mark| `]``|
-|[`|Jump to prev mark|
+|Jump to next mark| `]\``|
+|Jump to prev mark| `[\`` |
 |]'|Jump to start of next line containing a mark|
 |['|Jump to start of prev line containing a mark|
 |`]|Jump by alphabetical order to next mark|
