@@ -150,6 +150,7 @@ below uses a **prefix** as the command, for example `i"` would need a prefix of 
 |---------------------------------------|-----------------------------------------------------------------------|
 | Around tag block 			| `at`	|
 | Within tag block 			| `it`	|
+
 example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings` and change to edit mode
 
 ## Registers
