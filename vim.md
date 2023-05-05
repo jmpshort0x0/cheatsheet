@@ -180,12 +180,19 @@
 | Rotate windows clockwise | `CTRL w r` |
 | Rotate windows counter clockwise | `CTRL w R` |
 | Move current window top/bottom/left/right | `CTRL w K/J/H/L` |
-| Move current window to new tab | `CTRL w T` |
 | Reset all window sizes | `CTRL w =` |
 | Decrease window height | `CTRL w -` |
 | Increase window height | `CTRL w +` |
 | Decrease window width | `CTRL w <` |
 | Increase window width | `CTRL w >` |
+| Move current window to new tab | `CTRL w T` |
+ 
+## Tabs
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Move forward a tab | `gt` |
+| Move backward a tab | `gT` |
+| List tabs | `:tabs` |
  
 ## Other
 | Description				| Command								|
