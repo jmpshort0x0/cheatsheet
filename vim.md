@@ -1,13 +1,24 @@
 
+## Insertions
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Insert before cursor | `i` |
+| Insert at the first nonblank on current line | `I` |
+| Append after cursor | `a` |
+| Append at the end of line | `A` |
+| Open a new line below current line | `o` |
+| Open a new line above current | `O` |
 
 
 ## Markers
-
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
 | Set marker point 			| `m<Capital letter (to avoid confusion with other cmds)>`								|
 | Move to marker 	| `` `<Capital letter>``	|
 | Go to main working file 	| `:first`	|
+| show marks | `:marks` |
+
+
 
 ### Marking with signature plugin
 | Description				| Command								|
@@ -56,15 +67,37 @@
 ## Movement
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
+| Up 			| `k`								|
+| Down 			| `j`								|
+| Left 			| `h`								|
+| Right 			| `l`								|
 | Re-align line to the top 			| `zt`								|
 | Re-align line to the middle 			| `zz`								|
 | Re-align line to the bottom 			| `zb`								|
 | Re-align line to the bottom 			| `zb`								|
+| Move to top of current/visible scren | `H` |
+| Move to middle of current/visible scren | `M` |
+| Move to bottom of current/visible scren | `L` |
 | Go to the first line 			| `gg`								|
 | Go to the last line 			| `G`								|
 | Go to the beginning of the line			| `^`								|
 | Go to the end of the line			| `$`								|
-  
+ 
+## Manipulation
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Delete char at cursor 			| `x` or `dl`	|
+| Delete char left of cursor 			| `X` or `dh`	|
+| Delete delete to end of line from cursor 			| `D` or `d$`	|
+| Delete word 			| `dw`	|
+| Delete line 			| `dd`	|
+| Change to end of line 			| `C` or `c$`	|
+| Change char at cursor 			| `s` or `cl`	|
+| Change whole line 			| `S` or `cc`	|
+| Change word 			| `cw`	|
+| Change WORD 			| `cW`	|
+| Join line / delete line break | `J` |
+
 ## Registers
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
@@ -75,10 +108,22 @@
 | Most recent command | `":` |
 | Current file path | `"%` |
 | Copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
+| clipboard register | `"*` |
+| copy to clipboard | `"*yy` |
+| paste from clipboard | `"*p` |
+
+
+## Searching
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Search forward of current word 			| `*`								|
+| Search backward of current word 			| `#`								|
+| Search for word | `\/<word\>`
 
 
 ## Other
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
 | Select all 			| `ggVG`								|
+
 
