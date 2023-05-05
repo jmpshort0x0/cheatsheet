@@ -1,3 +1,8 @@
+## Quitting
+| Quit and save | `ZZ` or `:wq` |
+| Quit without saving | `ZQ` or `:q!` |
+| Write current buffer | `w` |
+
 
 ## Insertions
 | Description				| Command								|
@@ -71,6 +76,14 @@
 | Down 			| `j`								|
 | Left 			| `h`								|
 | Right 			| `l`								|
+| Move to beginning of next word | `w` |
+| Move to back to the beginning of a word | `b` |
+| Move to end of next word | `e` |
+| Move to back to the end of a word | `ge` |
+| Move to beginning of next WORD | `W` |
+| Move to back to the beginning of a WORD | `B` |
+| Move to end of next WORD | `E` |
+| Move to back to the end of a WORD | `gE` |
 | Re-align line to the top 			| `zt`								|
 | Re-align line to the middle 			| `zz`								|
 | Re-align line to the bottom 			| `zb`								|
@@ -80,8 +93,19 @@
 | Move to bottom of current/visible scren | `L` |
 | Go to the first line 			| `gg`								|
 | Go to the last line 			| `G`								|
-| Go to the beginning of the line			| `^`								|
+| Go to the beginning of first nonblank of the line		| `^`								|
+| Go to the beginning of the line		| `0`								|
 | Go to the end of the line			| `$`								|
+ 
+## Yank / Put to/from register ("" or "0)
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Yank line | `yy` |
+| Yank word | `yw` |
+| Yank to end of word | `ye` |
+| Put register content at the end of cursor | `p` |
+| Put register content before the cursor | `P` |
+ 
  
 ## Manipulation
 | Description				| Command								|
@@ -104,7 +128,7 @@
 | View registers 			| `:reg`								|
 | Access register | `"<register>` |
 | Expression register | `"=` |
-| Search register | `"/` |
+| Search register or last search command | `"/` |
 | Most recent command | `":` |
 | Current file path | `"%` |
 | Copy file path to clipboard | `:let @+=@%` + is the clipboard register, let is used to write to a register |
@@ -118,14 +142,31 @@
 |---------------------------------------|-----------------------------------------------------------------------|
 | Search forward of current word 			| `*`								|
 | Search backward of current word 			| `#`								|
-| Search for word | `/<word\>` |
+| Search for word | `/<word>` |
 | Search forward for next instance of the hit | `n` |
 | Search backward for next instance of the hit | `N` |
+| Search forward for next instance of <char> | `f<char>` |
+| Search backward for next instance of <char> | `F<char>` |
+| Search forward until (one char before) the next instance of <char> | `t<char>` |
+| Search backward until (one char after) the next instance of <char> | `T<char>` |
+ 
+ 
 
-
+## Visual
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| Visual mode by character | `v` |
+| Visual mode by line | `V` |
+| Visual mode by block | `ctrl V` |
+| Move to the end of the selection | `o` |
+| Move to the beginning of selection | `O` |
+ 
+ 
 ## Other
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
 | Select all 			| `ggVG`								|
+| Match parenthesis | `%` |
+ 
 
 
