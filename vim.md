@@ -164,6 +164,17 @@
 | Move to the beginning of selection | `O` |
  
  
+## Split Screen
+| Description				| Command								|
+|---------------------------------------|-----------------------------------------------------------------------|
+| New horizontal split | `:new` or `CTRL w n` |
+| New vertical split | `:vnew` or `CTRL w N` |
+| Split horizontally | `:split` or `CTRL w s` |
+| Split vertically | `:vsplit` or `CTRL w v` |
+| Close a window | `:close` or `CTRL w c` |
+| Close all except current window | `:only` or `CTRL w o`|
+| Move between splits | `CTRL w w` |
+ 
 ## Other
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
