@@ -99,7 +99,7 @@
 | Go to the beginning of the line		| `0`								|
 | Go to the end of the line			| `$`								|
  
-## Yank / Put to/from register ("" or "0)
+## Yank/Put to/from register ("" or "0) - Copy/Paste
 | Description				| Command								|
 |---------------------------------------|-----------------------------------------------------------------------|
 | Yank line | `yy` |
