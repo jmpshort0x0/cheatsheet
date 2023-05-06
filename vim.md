@@ -110,6 +110,9 @@
 | Search for yanked string | `/ CTRL+R 0` |
 | Put register content at the end of cursor | `p` |
 | Put register content before the cursor | `P` |
+| Yank up to <keyword> | `y/<keyword>/e` |
+ 
+Note: for `y/<keyword>/e`, the yank will get copied everything up to and including cursor to <keyword> but the search buffer will only contain <keyword>
  
  
 ## Manipulation
