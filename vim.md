@@ -233,10 +233,30 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
  ## fzf
 | Description				| Command								|
 |----|----|
-| Search through files | `:Files` |
-| Search via ag | `:Ag` |
-| Search via rg | `:Rg` |
-
+|Files(runs`$FZF_DEFAULT_COMMAND`ifdefined)|`:Files[PATH]`|
+|Gitfiles(`gitls-files`)|`:GFiles[OPTS]`|
+|Gitfiles(`gitstatus`)|`:GFiles?`|
+|Openbuffers|`:Buffers`|
+|Colorschemes|`:Colors`|
+|[ag][ag]searchresult(`ALT-A`toselectall,`ALT-D`todeselectall)|`:Ag[PATTERN]`|
+|[rg][rg]searchresult(`ALT-A`toselectall,`ALT-D`todeselectall)|`:Rg[PATTERN]`|
+|Linesinloadedbuffers|`:Lines[QUERY]`|
+|Linesinthecurrentbuffer|`:BLines[QUERY]`|
+|Tagsintheproject(`ctags-R`)|`:Tags[QUERY]`|
+|Tagsinthecurrentbuffer|`:BTags[QUERY]`|
+|Marks|`:Marks`|
+|Windows|`:Windows`|
+|`locate`commandoutput|`:LocatePATTERN`|
+|`v:oldfiles`andopenbuffers|`:History`|
+|Commandhistory|`:History:`|
+|Searchhistory|`:History/`|
+|Snippets([UltiSnips][us])|`:Snippets`|
+|Gitcommits(requires[fugitive.vim][f])|`:Commits[LOG_OPTS]`|
+|Gitcommitsforthecurrentbuffer;visual-selectlinestotrackchangesintherange|`:BCommits[LOG_OPTS]`|
+|Commands|`:Commands`|
+|Normalmodemappings|`:Maps`|
+|Helptags<supid="a1">[1](#helptags)</sup>|`:Helptags`|
+|Filetypes|`:Filetypes`|
  
 ## Other
 | Description				| Command								|
