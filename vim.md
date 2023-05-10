@@ -232,7 +232,7 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
  
  ## fzf
 | Description				| Command								|
-|---|---|
+|----|----|
 | Search through files | `:Files` |
 | Search via ag | `:Ag` |
 | Search via rg | `:Rg` |
