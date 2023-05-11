@@ -171,6 +171,7 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
 | Copy file path to clipboard | `:let @+=@"` + is the clipboard register, let is used to write to a register |
 | clipboard register | `"*` |
 | copy to clipboard | `"*yy` |
+| copy to clipboard | `"+yy` |
 | paste from clipboard | `"*p` |
 
 
