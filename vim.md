@@ -173,6 +173,7 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
 | clipboard register (linux+win+mac) | `"+` |
 | copy to clipboard | `"*yy` |
 | copy to clipboard | `"+yy` |
+| use command and save results to register | `"<reg><cmd>` eg: `"*dd` |
 | paste from clipboard | `"*p` |
 
 
