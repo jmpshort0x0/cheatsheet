@@ -39,10 +39,13 @@
 
 
 
-
-`nnoremap <Leader>r :Rg`
-`nnoremap <Leader>a :Ag`
-`nnoremap <Leader>f :Files`
+### bindings
+  
+| Description | Command |
+|----|----|
+| map `\r` to `:Rg` |`nnoremap <Leader>r :Rg`|
+| map `\a` to `:Ag` | `nnoremap <Leader>a :Ag`|
+| map `\f` to `:Files` |`nnoremap <Leader>f :Files`|
 
 
 
