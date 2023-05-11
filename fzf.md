@@ -24,9 +24,9 @@
 | Tags in the project (`ctags -R`)                                                      | `:Tags [QUERY]`        |
 | Tags in the current buffer                                                            | `:BTags [QUERY]`       |
 | Marks                                                                                 | `:Marks`               |
-| Windows                                                                               || `:Windows`             
+| Windows                                                                               | `:Windows`            |
 | `locate` command output                                                               | `:Locate PATTERN`      |
-| `v:oldfiles` and open buffers                                                         || `:History`             
+| `v:oldfiles` and open buffers                                                         | `:History`             |
 | Command history                                                                       | `:History:`            |
 | Search history                                                                        | `:History/`            |
 | Snippets ([UltiSnips][us])                                                            | `:Snippets`            |
