@@ -26,7 +26,217 @@ prereq: `fd` (fd-find) and `ag` (The Silver Searcher) and `rg` (ripgrep)
 | match 1st to 3rd last field | `..-3` |
 | match all fields | `..` |
 
+### display settings
 
+#### height
+| Description | Command |
+|----|----|
+| height by row or percentage | `--height=` |
+| minimum height when `--height` is used with % | `--min-height=` |
+  
+#### margin
+| Description | Command |
+|----|----|
+| margin by row or percentage | `--margin=` |
+| padding by row or percentage | `--padding=` |
+
+#### layout
+| Description | Command |
+|----|----|
+| layout from bottom to top. prompt at the bottom | `--layout=default` |
+| layout from top to bottom. prompt at the top | `--layout=reverse` |
+| layout from top to bottom. prompt at the bottom | `--layout=reverse-list` |
+
+#### border
+| Description | Command |
+|----|----|
+| display boarder | `--border=<type>` |
+| display border with label | `--border-label=<txt>` |
+| display border with label at position | `--border-label-position` |
+
+##### border types
+| Description | Command |
+|----|----|
+| rounded corners | `rounded` |
+| sharp corners | `sharp` |
+| bold lines | `bold` |
+| double lines | `double` |
+| horizontal lines above and below | `horizontal` |
+| vertical lines on the left and right | `vertical` |
+| top border only | `top` |
+| bottom bortder only | `bottom` |
+| left obrder only | `left` |
+| right border only | `right` |
+| no border | `none` |
+  
+
+Top border and centered label \
+`fzf --border=top --border-label="| My Cool Label |"` \
+
+Bold border and label 5 columns from the left \
+`fzf --border=bold --border-label="| My Cool Label |" --border-label-pos=5`\
+
+Horizontal border and label 5 columns from the right \
+`fzf --border=horizontal --border-label="| My Cool Label |" --border-label-pos=-5`
+
+#### info lines
+between entry and prompt
+| Description | Command |
+|----|----|
+| just above prompt | `--info=default` |
+| at the same level of prompt | `--info=inline` |
+| no info line | `--info=hidden` |
+
+Inline the info line with the prompt \
+`fzf --info=inline`
+
+Hide the info line \
+`fzf --info=hidden`
+
+#### prompt pointer and multimarker
+| Description | Command |
+|----|----|
+| change the prompts character | `--prompt='<char>'` |
+| change pointer character | `--pointer='<char>'` |
+| change marker character | `--marker='<char>'` |
+  
+`fzf -m --prompt='▶' --pointer='→' --marker='♡'`  
+
+#### header
+appear near prompt
+| Description | Command |
+|----|----|
+| header's content | `--header` |
+| display <num> lines from input as header | `--header-lines=<num>` |
+| display the header before the prompt | `--header-first` |
+
+The header is above the prompt \
+`fzf --header="Use CTRL-C to cancel" --header-first --reverse`
+
+Display the first line of output from the command "lsblk" as header. \
+It won't be possible to fuzzy search for this line anymore. \
+`lsblk | fzf --header-lines=1`
+  
+#### colors
+| Description | Command |
+|----|----|
+| processing of ansi color | `--ansi` |
+| change color of TUI | `--color` |
+| no color | `--no-color` |
+
+##### base scheme
+| Description | Command |
+|----|----|
+| dark scheme | `dark` |
+| light scheme | `light` |
+| 16 color | `16` |
+| black and white | `bw` |
+
+##### colors
+| Description | Command |
+|----|----|
+| text of entries | `fg` |
+| text of current line | `fg+` |
+| bg color | `bg` |
+| bg of current line | `bg+` |
+| preview text | `preview-fg` |
+| preview background | `preview-bg` |
+| highlighted substring | `hl` |
+| highlighted substring of current line | `hl+` |
+| gutter on the left (get the value of bg+ if not specified) | `gutter` |
+| query string | `query` |
+| query string when search is disabled | `disabled` |
+| info line | `info` |
+| horizontal separator of the info line | `separator` |
+| border aroudn the window (used by --border and --preview) | `border` |
+| border's label (used by --border-label and --preview-label) | `label` |
+| prompt | `prompt` |
+| pointer | `pointer` |
+| multiselect markers | `marker` |
+| loading input indicator | `spinner` |
+| header | `header` |
+
+schema : `--color=[BASE_SCHEME][,COLOR_NAME[:ANSI_COLOR][:ANSI_ATTRIBUTES]]...`
+
+Use ANSI color code (bright red) \
+The first '^[' is an ESC character - you can spit it with 'CTRL-v ESC' \
+`echo "^[[1;31mHello" | fzf --ansi`
+
+The text of the current entry is red on a "dark" base scheme (ANSI 256 colors). \
+`fzf --color='dark,fg+:red'`
+
+The text of the current entry is red, and the other entries are blue (ANSI 256 colors). \
+`fzf --color='fg+:red,fg:117'`
+
+The text of the current line is red, and the other entries are blue (24 bits colors). \
+`fzf --color='fg+:#ff0000,fg:#0000ff'`
+  
+```
+fzf --color="bg+:-1,\
+fg:gray,\
+fg+:white,\
+border:black,\
+spinner:0,\
+hl:yellow,\
+header:blue,\
+info:green,\
+pointer:red,\
+marker:blue,\
+prompt:gray,\
+hl+:red"
+```
+#### preview
+
+| Description | Command |
+|----|----|
+| exec current command show in preview window | `--preview='<cmd> {}'` |
+| preview window settings | `--preview-window=` |
+| preview label | `--preview-label='<txt>'` |
+| preview label position | `--preview-label-pos=` |
+
+Display the stats of each directory using the CLI "stat" \
+For example, if the current entry is "./home", the preview command will be "stat './home'" \
+`find . -type d | fzf --preview='stat {}'`
+
+Display the preview window with a label centered on top. \
+`find . -type d | fzf --preview='stat {}' --preview-label='[ Directory stats ]'`
+
+Display the preview window with a label at the bottom, 3 rows from the left. \
+`find . -type d | fzf --preview='stat {}' --preview-label='[ Directory stats ]' --preview-label-pos='3:bottom'`
+
+##### preview scrolling
+
+| Description | Command |
+|----|----|
+| preview one line up | `<shift><up>` |
+| preview one line down | `<shift><down>` |
+  
+##### preview placeholder
+default placeholder is `{}` but it can display the second field of an entry `{2}`
+
+| Description | Command |
+|----|----|
+| display the preview of all entries | `{+}` |
+| keep the leading and trailing white space | `{s}` |
+| replace the palceholder with the query string | `{q}` |
+| replace the placeholder by the line number | `{n}` |
+  
+`find . -type d | nl | fzf --preview='stat {2}' --preview-label='[ Directory stats ]'`
+`find . -type d | fzf --preview='echo "File(s) with index(es) {+n} and query {q} \n" && ls -l {-1}' --preview-label='[ Directory stats ]'`
+
+##### preview window
+
+| Description | Command |
+|----|----|
+| position of the window `left`,`right`,`top`, or `bottom`| `POSITION` |
+| height of the window in rows or percentage | `SIZE`|
+| add a border | `border-<BORDDER_OPT>` |
+| wrap the lines | `wrap` or `nowrap` |
+| automatically scroll to the bottom of the window | `follow` or `nofollow` |
+| enable cycling (back to the top) | `cycle` or `nocycle` | `hidden` or `nohidden`
+| hide the preview window. can only be shown wthen the binding `toggle-preview` action | 
+`--preview-window=[POSITION][,SIZE[%]][,border-BORDER_OPT][,[no]wrap][,[no]follow][,[no]cycle][,[no]hidden][,+SCROLL[OFFSETS][/DENOM]][,~HEADER_LINES][,default]`  
+  
 ## searching syntax
 
 | Description | Command |
@@ -97,8 +307,6 @@ Prereqs: `ag` (The Silver Searcher) and `rg` (ripgrep)
 | map `\r` to `:Rg` |`nnoremap <Leader>r :Rg`|
 | map `\a` to `:Ag` | `nnoremap <Leader>a :Ag`|
 | map `\f` to `:Files` |`nnoremap <Leader>f :Files`|
-
-
 
 ## combining into bashrc
 ```
