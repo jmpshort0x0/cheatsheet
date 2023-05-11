@@ -27,7 +27,7 @@ example `.txt$ python project | prj !git`
 
 
 ## default command
-sets the default searching parameters when using `fzf` when there is **no additional input** \
+sets the default searching parameters when using `fzf` when there is * **no additional input** * \
 `export FZF_DEFAULT_COMMAND='find -L . -type f ! -path "*git*"'` or  \
 `export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'` or \
 `export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'`
