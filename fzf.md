@@ -34,7 +34,7 @@
 | Git commits for the current buffer; visual-select lines to track changes in the range | `:BCommits [LOG_OPTS]` |
 | Commands                                                                              | `:Commands`            |
 | Normal mode mappings                                                                  | `:Maps`                |
-| Help tags <sup id="a1">[1](#helptags)</sup>                                           | `:Helptags`            |
+| Help tags <sup id="a1">\[1\](#helptags)</sup>                                           | `:Helptags`            |
 | File types |`:Filetypes`           |
 
 
