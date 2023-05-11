@@ -11,6 +11,21 @@ prereq: `fd` (fd-find) and `ag` (The Silver Searcher) and `rg` (ripgrep)
 | case sensitive | `+i` |
 | toggle section and move up | `<TAB>`|
 | toggle selection and move down | `<SHIFT><TAB>`|
+| search on the nth fields | `--nth=<num>` |
+| change delimter from <space> to <delim> | `--delimiter=<delim>` |
+  
+### nth usage
+
+| Description | Command |
+|----|----|
+| match 2nd field | `2` |
+| match last field | `-1` |
+| match second last field | `-2` |
+| match 3rd to 5th field | `3..5` |
+| match 2nd to last field | `2..` |
+| match 1st to 3rd last field | `..-3` |
+| match all fields | `..` |
+
 
 ## searching syntax
 
