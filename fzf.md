@@ -125,3 +125,19 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-v:execute(code {+})'
 ```
 
+or
+  
+```
+fzf --multi \
+--height=50% \
+--margin=5%,2%,2%,5% \
+--layout=reverse-list \
+--border=double \
+--info=inline \
+--prompt='$>' \
+--pointer='→' \
+--marker='♡' \
+--header='CTRL-c or ESC to quit' \
+--color='dark,fg:magenta'
+```
+
