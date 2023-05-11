@@ -169,7 +169,8 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
 | Most recent command | `":` |
 | Current file path | `"%` |
 | Copy file path to clipboard | `:let @+=@"` + is the clipboard register, let is used to write to a register |
-| clipboard register | `"*` |
+| clipboard register (win+mac) | `"*` |
+| clipboard register (linux+win+mac) | `"+` |
 | copy to clipboard | `"*yy` |
 | copy to clipboard | `"+yy` |
 | paste from clipboard | `"*p` |
