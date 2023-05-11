@@ -1,1 +1,73 @@
+# Usage Examples
+
+## commands
+
+| Description | Command |
+|----|----|
+|fzf mode and paste contents on <enter>|`ctrl t`|
+|cd via fzf| `cd **<tab>`|
+|vi via fzf| `vi **<tab>` or `` vi -o `fzf` `` or `vi $(fzf)`|
+
+  
+## VIM
+| Description | Command |
+|----|----|
+| Files (runs `$FZF_DEFAULT_COMMAND` if defined)                                        | `:Files [PATH]`        |
+| Git files (`git ls-files`)                                                            | `:GFiles [OPTS]`       |
+| Git files (`git status`)                                                              | `:GFiles?`             |
+| Open buffers                                                                          | `:Buffers`             |
+| Color schemes                                                                         | `:Colors`              |
+| [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Ag [PATTERN]`        |
+| [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Rg [PATTERN]`        |
+| Lines in loaded buffers                                                               | `:Lines [QUERY]`       |
+| Lines in the current buffer                                                           | `:BLines [QUERY]`      |
+| Tags in the project (`ctags -R`)                                                      | `:Tags [QUERY]`        |
+| Tags in the current buffer                                                            | `:BTags [QUERY]`       |
+| Marks                                                                                 | `:Marks`               |
+| Windows                                                                               || `:Windows`             
+| `locate` command output                                                               | `:Locate PATTERN`      |
+| `v:oldfiles` and open buffers                                                         || `:History`             
+| Command history                                                                       | `:History:`            |
+| Search history                                                                        | `:History/`            |
+| Snippets ([UltiSnips][us])                                                            | `:Snippets`            |
+| Git commits (requires [fugitive.vim][f])                                              | `:Commits [LOG_OPTS]`  |
+| Git commits for the current buffer; visual-select lines to track changes in the range | `:BCommits [LOG_OPTS]` |
+| Commands                                                                              | `:Commands`            |
+| Normal mode mappings                                                                  | `:Maps`                |
+| Help tags <sup id="a1">[1](#helptags)</sup>                                           | `:Helptags`            |
+| File types |`:Filetypes`           |
+
+
+
+
+`nnoremap <Leader>r :Rg`
+`nnoremap <Leader>a :Ag`
+`nnoremap <Leader>f :Files`
+
+
+
+## combining into bashrc
+```
+# fzf 
+# fzf ctrl-r and alt-c behavior
+export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"' #requires fd to be installed
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+#export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=80%
+--multi
+--preview-window=:hidden
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+--bind '?:toggle-preview'
+--bind 'ctrl-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+--bind 'ctrl-v:execute(code {+})'
+```
 
