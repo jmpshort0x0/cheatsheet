@@ -1,15 +1,51 @@
 # Usage Examples
+prereq: `fd` (fd-find) and `ag` (The Silver Searcher) and `rg` (ripgrep)
+
+## flags
+
+| Description | Command |
+|----|----|
+| exact matches | `-e` or `--exact` |
+| multi line matches | `-m` or `--multi`|
+| case insensitive | `-i`|
+| case sensitive | `+i` |
+| toggle section and move up | `<TAB>`|
+| toggle selection and move down | `<SHIFT><TAB>`|
+
+## searching syntax
+
+| Description | Command |
+|----|----|
+| signify end | `$` |
+| signify beginning | `^` |
+| not operator  | `!` |
+| or operator  | `|` |
+| exact match | `'` |
+| and operator (implicit) | ` `|
+
+example `.txt$ python project | prj !git`
+
+
+## default command
+sets the default searching parameters when using `fzf` when there is **no additional input**
+`export FZF_DEFAULT_COMMAND='find -L . -type f ! -path "*git*"'` or
+`export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'` or
+`export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'`
 
 ## commands
+
 
 | Description | Command |
 |----|----|
 |fzf mode and paste contents on <enter>|`ctrl t`|
-|cd via fzf| `cd **<tab>`|
+|cd via fzf| `cd **<tab>` or `cd $(find . -type d |fzf)` or `cd $(fd . --hidden | fzf)`|
 |vi via fzf| `vi **<tab>` or `` vi -o `fzf` `` or `vi $(fzf)`|
 
   
 ## VIM
+  
+Prereqs: `ag` (The Silver Searcher) and `rg` (ripgrep)
+  
 | Description | Command |
 |----|----|
 | Files (runs `$FZF_DEFAULT_COMMAND` if defined)                                        | `:Files [PATH]`        |
