@@ -414,7 +414,7 @@ fzf --multi \
 ```
 
 ## combining for clink
-set in environment vars to persist
+the following do not persist, set in local user's env var (or via setx) for persistence 
 ```
 set FZF_CTRL_T_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
 set FZF_CTRL_R_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
