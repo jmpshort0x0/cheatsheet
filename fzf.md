@@ -1,6 +1,68 @@
 # Usage Examples
 prereq: `fd` (fd-find) and `ag` (The Silver Searcher) and `rg` (ripgrep)
 
+## searching syntax
+
+| Description | Command |
+|----|----|
+| signify end | `$` |
+| signify beginning | `^` |
+| not operator  | `!` |
+| or operator  | `|` |
+| exact match | `'` |
+| and operator (implicit) | ` `|
+
+example `.txt$ python project | prj !git`
+
+
+## default command
+sets the default searching parameters when using `fzf` when there is * **no additional input** * \
+`export FZF_DEFAULT_COMMAND='find -L . -type f ! -path "*git*"'` or  \
+`export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'` or \
+`export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'`
+
+## commands
+
+
+| Description | Command |
+|----|----|
+|fzf mode and paste contents on <enter>|`ctrl t`|
+|cd via fzf| `cd **<tab>` or `cd $(find . -type d |fzf)` or `cd $(fd . --hidden | fzf)`|
+|vi via fzf| `vi **<tab>` or `` vi -o `fzf` `` or `vi $(fzf)`|
+
+  
+## VIM
+  
+Prereqs: `ag` (The Silver Searcher) and `rg` (ripgrep)
+  
+| Description | Command |
+|----|----|
+| Files (runs `$FZF_DEFAULT_COMMAND` if defined)                                        | `:Files [PATH]`        |
+| Git files (`git ls-files`)                                                            | `:GFiles [OPTS]`       |
+| Git files (`git status`)                                                              | `:GFiles?`             |
+| Open buffers                                                                          | `:Buffers`             |
+| Color schemes                                                                         | `:Colors`              |
+| [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Ag [PATTERN]`        |
+| [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Rg [PATTERN]`        |
+| Lines in loaded buffers                                                               | `:Lines [QUERY]`       |
+| Lines in the current buffer                                                           | `:BLines [QUERY]`      |
+| Tags in the project (`ctags -R`)                                                      | `:Tags [QUERY]`        |
+| Tags in the current buffer                                                            | `:BTags [QUERY]`       |
+| Marks                                                                                 | `:Marks`               |
+| Windows                                                                               | `:Windows`            |
+| `locate` command output                                                               | `:Locate PATTERN`      |
+| `v:oldfiles` and open buffers                                                         | `:History`             |
+| Command history                                                                       | `:History:`            |
+| Search history                                                                        | `:History/`            |
+| Snippets ([UltiSnips][us])                                                            | `:Snippets`            |
+| Git commits (requires [fugitive.vim][f])                                              | `:Commits [LOG_OPTS]`  |
+| Git commits for the current buffer; visual-select lines to track changes in the range | `:BCommits [LOG_OPTS]` |
+| Commands                                                                              | `:Commands`            |
+| Normal mode mappings                                                                  | `:Maps`                |
+| Help tags \<sup id="a1"\>\[1\](#helptags)\</sup\>                                           | `:Helptags`            |
+| File types |`:Filetypes`           |
+
+
 ## flags
 
 | Description | Command |
@@ -236,69 +298,71 @@ default placeholder is `{}` but it can display the second field of an entry `{2}
 | enable cycling (back to the top) | `cycle` or `nocycle` | `hidden` or `nohidden`
 | hide the preview window. can only be shown wthen the binding `toggle-preview` action | 
 `--preview-window=[POSITION][,SIZE[%]][,border-BORDER_OPT][,[no]wrap][,[no]follow][,[no]cycle][,[no]hidden][,+SCROLL[OFFSETS][/DENOM]][,~HEADER_LINES][,default]`  
-  
-## searching syntax
+
+#### binding keystroks or events to actions
 
 | Description | Command |
 |----|----|
-| signify end | `$` |
-| signify beginning | `^` |
-| not operator  | `!` |
-| or operator  | `|` |
-| exact match | `'` |
-| and operator (implicit) | ` `|
+| comma separated liset of keybindings | `--bind='<binding key>:<action>'`
 
-example `.txt$ python project | prj !git`
+`find . -type d | fzf --bind='ctrl-r:reload(find -type d)' --header='CTRL-r to refresh the list'`
+`find . -type d | fzf --bind='ctrl-r:reload(find -type d)' --bind='del:execute(rm -ri {})' --bind='del:+reload(find -type d)' --header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'`  
 
-
-## default command
-sets the default searching parameters when using `fzf` when there is * **no additional input** * \
-`export FZF_DEFAULT_COMMAND='find -L . -type f ! -path "*git*"'` or  \
-`export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'` or \
-`export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'`
-
-## commands
-
-
+##### events
 | Description | Command |
 |----|----|
-|fzf mode and paste contents on <enter>|`ctrl t`|
-|cd via fzf| `cd **<tab>` or `cd $(find . -type d |fzf)` or `cd $(fd . --hidden | fzf)`|
-|vi via fzf| `vi **<tab>` or `` vi -o `fzf` `` or `vi $(fzf)`|
+| triggered when fzf starts | `start`|
+| triggered when the query is changed | `change` |
+| triggered when query is empty and stil <bksp> | `backward-eof` |  
 
-  
-## VIM
-  
-Prereqs: `ag` (The Silver Searcher) and `rg` (ripgrep)
-  
+`FZF_DEFAULT_COMMAND="find . -type d" fzf --bind='change:reload(eval $FZF_DEFAULT_COMMAND)' --bind='del:execute(rm -ri {})' --bind='del:+reload(eval $FZF_DEFAULT_COMMAND)' --header='CTRL-R to refresh the list | CTRL-P to toggle the preview | DEL to delete the current directory'`
+
+##### actions
+You can use `{}` to signify current entry
 | Description | Command |
 |----|----|
-| Files (runs `$FZF_DEFAULT_COMMAND` if defined)                                        | `:Files [PATH]`        |
-| Git files (`git ls-files`)                                                            | `:GFiles [OPTS]`       |
-| Git files (`git status`)                                                              | `:GFiles?`             |
-| Open buffers                                                                          | `:Buffers`             |
-| Color schemes                                                                         | `:Colors`              |
-| [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Ag [PATTERN]`        |
-| [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all)               | `:Rg [PATTERN]`        |
-| Lines in loaded buffers                                                               | `:Lines [QUERY]`       |
-| Lines in the current buffer                                                           | `:BLines [QUERY]`      |
-| Tags in the project (`ctags -R`)                                                      | `:Tags [QUERY]`        |
-| Tags in the current buffer                                                            | `:BTags [QUERY]`       |
-| Marks                                                                                 | `:Marks`               |
-| Windows                                                                               | `:Windows`            |
-| `locate` command output                                                               | `:Locate PATTERN`      |
-| `v:oldfiles` and open buffers                                                         | `:History`             |
-| Command history                                                                       | `:History:`            |
-| Search history                                                                        | `:History/`            |
-| Snippets ([UltiSnips][us])                                                            | `:Snippets`            |
-| Git commits (requires [fugitive.vim][f])                                              | `:Commits [LOG_OPTS]`  |
-| Git commits for the current buffer; visual-select lines to track changes in the range | `:BCommits [LOG_OPTS]` |
-| Commands                                                                              | `:Commands`            |
-| Normal mode mappings                                                                  | `:Maps`                |
-| Help tags \<sup id="a1"\>\[1\](#helptags)\</sup\>                                           | `:Helptags`            |
-| File types |`:Filetypes`           |
+| switch to alternate screen and execute command | `execute(<cmd>)` |
+| execute a command without leaving fzf | `execute-silent(<cmd>)` |
+| specify additional preview command | `preview(<cmd>)` |
+| refresh the preview | `change-preview` |
+| change the value of --preview-window. use the delimiter | to create (and cycle through) different groups of options| `change-preview-window(<cmd1>|<cmd2>)`|
+| chagen the prompt to the given characters | `change-prompt(<cmd>)`|
+| reload the list of entries with the given command | `reload(<cmd>)` |
+| select all matches | `select-all`|
+| clear selection | `deselect-all`|
+|toggle all matches | `toggle-all`|
+| toggle the sorting | `toggle-sort`|
+| replace the query with the current selection | `replace_query`|
+| delete the query | `clear-query` |
+| unbind a binding keystroke | `unbind(<bind>)`|
+| rebind a keystroke after unbinding it | `rebind(<bind>)`|
+| close fzf | `abort`|
 
+Close fzf with CTRL-D \
+`fzf --bind='ctrl-d:abort'`
 
+Display the preview with CTRL-P \
+`fzf --preview-window=hidden --bind='ctrl-p:preview(stat {})'`
+
+Change the preview with CTRL-P \
+`fzf --preview='file {}' --bind='ctrl-p:change-preview(stat {})'`
+
+Change the position and size of the preview window with CTRL-P \
+`fzf --preview='file {}' --bind='ctrl-p:change-preview-window(20%,top|50%,right)'`
+
+Change the prompt with CTRL-P \
+`fzf --preview='file {}' --bind='ctrl-p:change-prompt(→ )'`
+
+Delete the file or directory with DEL \
+`fzf --preview='file {}' --bind='del:execute(rm -ri {})'`
+
+Reload the list of files\
+`find . -type f | fzf --bind='ctrl-r:reload(find . -type f)'`
+
+Bind CTRL-A to select all entries \
+Unbind CTRL-A and rebind it with, respectively, CTRL-U and CTRL-R \
+`find . -type f | fzf --multi --bind='ctrl-a:select-all' --bind='ctrl-u:unbind(ctrl-a)' --bind='ctrl-r:rebind(ctrl-a)'`
+  
 
 ### bindings
   
