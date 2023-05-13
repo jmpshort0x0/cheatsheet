@@ -220,7 +220,7 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
 | Rotate windows clockwise | `CTRL w r` |
 | Rotate windows counter clockwise | `CTRL w R` |
 | Move current window top/bottom/left/right | `CTRL w K/J/H/L` |
-| Reset all window sizes | `CTRL w =` |
+| **Reset all window sizes** | `CTRL w =` |
 | Decrease window height | `CTRL w -` |
 | Increase window height | `CTRL w +` |
 | Decrease window width | `CTRL w <` |
