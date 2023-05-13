@@ -15,6 +15,8 @@
 | Append at the end of line | `A` |
 | Open a new line below current line | `o` |
 | Open a new line above current | `O` |
+| insert new line above | `[+<space>` |
+| insert new line below | `]+<space>` |
 
 
 ## Markers
@@ -266,6 +268,12 @@ example : `<title>Hello Earthlings</title>`. `cit` will remove `Hello Earthlings
 |---------------------------------------|-----------------------------------------------------------------------|
 | Select all 			| `ggVG`								|
 | Match parenthesis | `%` |
+| show line numbers | `:set number` |
+| do not auto indent when pasting | `:set paste` |
+| show cursor column | `:set cuc` |
+
+Note you can toggle these options with a `!`.\
+`:set paste!`
  
 
 
