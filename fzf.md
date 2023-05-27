@@ -373,6 +373,10 @@ Unbind CTRL-A and rebind it with, respectively, CTRL-U and CTRL-R \
 | map `\f` to `:Files` |`nnoremap <Leader>f :Files`|
 
 ## combining into bashrc
+
+adjust for `fd`/`find` usage accordingly
+  
+replace `tree -C` with `lsd --tree` accordingly
 ```
 # fzf 
 # fzf ctrl-r and alt-c behavior
@@ -381,20 +385,21 @@ export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"' #requires fd to be ins
 #export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+#export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d"
 export FZF_DEFAULT_OPTS="
 --layout=reverse
 --info=inline
 --height=80%
 --multi
 --preview-window=:hidden
---preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (lsd --tree {} | less)) || echo {} 2> /dev/null | head -200'
 --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
 --prompt='∼ ' --pointer='▶' --marker='✓'
 --bind '?:toggle-preview'
 --bind 'ctrl-a:select-all'
 --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
 --bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
---bind 'ctrl-v:execute(code {+})'
+--bind 'ctrl-v:execute(code {+})'"
 ```
 
 or
@@ -417,11 +422,11 @@ fzf --multi \
 the following do not persist, set in local user's env var (or via setx) for persistence 
 ```
 set FZF_CTRL_T_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
-set FZF_CTRL_R_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
-set FZF_ALT_C_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
+set FZF_CTRL_R_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "echo {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
+set FZF_ALT_C_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "lsd --tree {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
 set FZF_BINDINGS_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
 set FZF_COMPLETE_OPTS=--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview "cat {} | head -200" --color="hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008" --prompt="∼ " --pointer="▶" --marker="✓" --bind "?:toggle-preview" --bind "ctrl-a:select-all" --bind "ctrl-y:execute-silent(echo {+} | pbcopy)" --bind "ctrl-e:execute(echo {+} | xargs -o vim)" --bind "ctrl-v:execute(code {+})"
 set FZF_CTRL_T_COMMAND=fd --hidden --exclude ".git"
-set FZF_ALT_C_COMMAND=fd --hidden --exclude --type d
+set FZF_ALT_C_COMMAND=fd --hidden --type d 
 ```
 
