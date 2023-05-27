@@ -382,7 +382,7 @@ replace `tree -C` with `lsd --tree` accordingly
 # fzf ctrl-r and alt-c behavior
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"' #requires fd to be installed
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-#export FZF_DEFAULT_COMMAND='find . -type f ! -path "*git*"'
+#export FZF_DEFAULT_COMMAND='find -L ! -path "*git*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 #export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d"
