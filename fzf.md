@@ -374,7 +374,7 @@ Unbind CTRL-A and rebind it with, respectively, CTRL-U and CTRL-R \
 
 ## combining into bashrc
 
-adjust for `fd`/`find` usage accordingly
+adjust for `fd/fdfind`/`find` usage accordingly
   
 replace `tree -C` with `lsd --tree` accordingly
 ```
