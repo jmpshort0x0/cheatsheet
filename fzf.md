@@ -380,26 +380,13 @@ replace `tree -C` with `lsd --tree` accordingly
 ```
 # fzf 
 # fzf ctrl-r and alt-c behavior
-export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"' #requires fd to be installed
-#export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-#export FZF_DEFAULT_COMMAND='find -L ! -path "*git*"'
+export FZF_DEFAULT_COMMAND="fd --hidden --exclude '.git'" #requires fd to be installed
+#export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+#export FZF_DEFAULT_COMMAND="find -L ! -path '*git*'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 #export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d"
-export FZF_DEFAULT_OPTS="
---layout=reverse
---info=inline
---height=80%
---multi
---preview-window=:hidden
---preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (lsd --tree {} | less)) || echo {} 2> /dev/null | head -200'
---color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
---prompt='∼ ' --pointer='▶' --marker='✓'
---bind '?:toggle-preview'
---bind 'ctrl-a:select-all'
---bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
---bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
---bind 'ctrl-v:execute(code {+})'"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (lsd --tree {} | less)) || echo {} 2> /dev/null | head -200' --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008' --prompt='∼ ' --pointer='▶' --marker='✓' --bind '?:toggle-preview' --bind 'ctrl-a:select-all' --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)' --bind 'ctrl-e:execute(echo {+} | xargs -o vim)' --bind 'ctrl-v:execute(code {+})'"
 ```
 
 or
@@ -429,4 +416,12 @@ set FZF_COMPLETE_OPTS=--layout=reverse --info=inline --height=80% --multi --prev
 set FZF_CTRL_T_COMMAND=fd --hidden --exclude ".git"
 set FZF_ALT_C_COMMAND=fd --hidden --type d 
 ```
-
+## combining for wsl
+```
+# fzf ctrl-r and alt-c behavior
+#export FZF_DEFAULT_COMMAND="find -L . ! -path '*git*'"
+export FZF_DEFAULT_COMMAND="fdfind --hidden --exclude '*git*'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --height=80% --multi --preview-window=:hidden --preview '([[ -f {} ]] && (batcat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (lsd --tree {} | less)) || echo {} 2> /dev/null | head -200' --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008' --prompt='∼ ' --pointer='▶' --marker='✓' --bind '?:toggle-preview' --bind 'ctrl-a:select-all' --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)' --bind 'ctrl-e:execute(echo {+} | xargs -o vim)' --bind 'ctrl-v:execute(code {+})'"
+```
