@@ -17,6 +17,8 @@
 | Open a new line above current | `O` |
 | insert new line above | `[+<space>` |
 | insert new line below | `]+<space>` |
+| insert comments (#) between lines 23:35 | `:23,35norm 0i#`|
+| insert comments (#) from visual mode | `'<.'>norm I#` |
 
 
 ## Markers
