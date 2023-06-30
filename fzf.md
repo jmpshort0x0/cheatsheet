@@ -416,6 +416,9 @@ set FZF_COMPLETE_OPTS=--layout=reverse --info=inline --height=80% --multi --prev
 set FZF_CTRL_T_COMMAND=fd --hidden --exclude ".git"
 set FZF_ALT_C_COMMAND=fd --hidden --type d 
 ```
+
+note: may neet to configure the bindings in clink `clink set fzf.default_bindings false`
+
 ## combining for wsl
 ```
 # fzf ctrl-r and alt-c behavior
